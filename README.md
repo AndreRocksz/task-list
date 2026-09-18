@@ -54,6 +54,8 @@ task-list/
 ├── .prettierignore
 └── package.json
 
+```
+
 Instalação
 
 Clone o repositório:
