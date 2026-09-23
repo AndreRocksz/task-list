@@ -1,0 +1,33 @@
+name: CI/CD Pipeline
+
+on:
+    push:
+        branches: 
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout do código
+              uses: actions/checkout@v4
+
+            - name: Configurar Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+                cache: npm
+            
+            - name: Instalar Dependências
+              run: npm ci
+
+            - name: Executar ESLint
+              run: npm run lint
+
+            - name: Executar Testes
+              run: npm test
+
+            - name: Executar Build
+              run: npm run build
+            
