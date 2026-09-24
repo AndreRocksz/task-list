@@ -14,9 +14,9 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Configurar Node.js
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v7
               with:
-                node-version: 20
+                node-version: 24
                 cache: npm
             
             - name: Instalar Dependências
@@ -46,6 +46,9 @@ jobs:
         - name: Instalar Vercel CLI
           run: npm install --global vercel@latest
 
+        - name: Vincular projeto à Vercel
+          run: vercel link --yes --token=${{ secrets.VERCEL_TOKEN }}
+
         - name: Obter configurações da Vercel
           run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
@@ -54,5 +57,3 @@ jobs:
 
         - name: Fazer o deploy na Vercel
           run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-          
-            
