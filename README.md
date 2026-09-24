@@ -107,4 +107,6 @@ Formulários controlados
 Jest
 Testing Library
 Testes unitários em aplicações Next.js
-Organização de projetos com App Router
+Organização de projetos com App 
+
+Criado por André Franco
