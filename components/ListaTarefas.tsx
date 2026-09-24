@@ -24,16 +24,26 @@ export default function ListaTarefas({
   }
 
   return (
-    <>
+    <section className="task-panel">
       <ContadorTarefas tarefas={tarefas} />
 
       <NovaTarefa onAdicionar={adicionarTarefa} />
 
-      <ul>
-        {tarefas.map((tarefa) => (
-          <li key={tarefa.id}>{tarefa.titulo}</li>
-        ))}
-      </ul>
-    </>
+      <div className="task-list-container">
+        <div className="task-list-header">
+          <h2 className="task-list-title">Suas tarefas</h2>
+        </div>
+
+        <ul className="task-list">
+          {tarefas.map((tarefa) => (
+            <li className="task" key={tarefa.id}>
+              <span className="task-check" aria-hidden="true" />
+
+              <span>{tarefa.titulo}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   )
 }

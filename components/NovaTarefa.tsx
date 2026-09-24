@@ -26,20 +26,31 @@ export default function NovaTarefa({ onAdicionar }: NovaTarefaProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="nova-tarefa">Nova tarefa</label>
+    <section className="form-section">
+      <h2 className="form-title">Adicionar nova tarefa</h2>
 
-      <input
-        id="nova-tarefa"
-        type="text"
-        value={titulo}
-        onChange={(event) => setTitulo(event.target.value)}
-        placeholder="Digite uma tarefa"
-      />
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="input-wrapper">
+          <label htmlFor="nova-tarefa" className="sr-only">
+            Nova tarefa
+          </label>
 
-      <button type="submit">Adicionar</button>
+          <input
+            className="input"
+            id="nova-tarefa"
+            type="text"
+            value={titulo}
+            onChange={(event) => setTitulo(event.target.value)}
+            placeholder="Digite uma tarefa"
+          />
+        </div>
 
-      {erro && <p>{erro}</p>}
-    </form>
+        <button className="button" type="submit">
+          Adicionar
+        </button>
+      </form>
+
+      {erro && <p className="error">{erro}</p>}
+    </section>
   )
 }

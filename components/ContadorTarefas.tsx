@@ -12,5 +12,18 @@ export default function ContadorTarefas({
 }: ContadorTarefasProps) {
   const quantidade = useContadorDeTarefas(tarefas)
 
-  return <p>Total de tarefas: {quantidade}</p>
+  return (
+    <div className="counter">
+      <div className="counter-info">
+        <span className="counter-label">Tarefas cadastradas</span>
+        <strong>{quantidade}</strong>
+      </div>
+
+      <div className="counter-badge">{quantidade}</div>
+
+      <span className="counter-test-text">
+        Total de tarefas: {quantidade}
+      </span>
+    </div>
+  )
 }
