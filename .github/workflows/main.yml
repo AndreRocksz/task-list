@@ -52,7 +52,7 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Vincular projeto à Vercel
-        run: vercel link --yes --project="$VERCEL_PROJECT_ID" --scope="dev-studies" --token="${{ secrets.VERCEL_TOKEN }}"
+        run: vercel link --yes --project="$VERCEL_PROJECT_ID" --token="${{ secrets.VERCEL_TOKEN }}"
 
       - name: Obter configurações da Vercel
         run: vercel pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
